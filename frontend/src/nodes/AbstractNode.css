@@ -1,0 +1,100 @@
+/* AbstractNode.css */
+
+* {
+  box-sizing: border-box;
+}
+
+.node-container {
+  min-width: 250px;
+  min-height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #dae2f1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.node-container:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.node-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.textarea-field {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.select-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.button {
+  margin-top: 25px;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #34568B;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.button:hover {
+  background-color: #2b4865;
+}
+
+.button:active {
+  background-color: #34568B;
+}
+
+.alert-container {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #555;
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.alert-container p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+}
