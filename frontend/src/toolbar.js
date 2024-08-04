@@ -1,4 +1,4 @@
-// toolbar.js
+// frontend\src\toolbar.js
 
 import { DraggableNode } from "./draggableNode";
 

@@ -1,6 +1,6 @@
-// AbstractNode.js
+// frontend\src\nodes\AbstractNode.js
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Handle, Position } from "reactflow";
 import "./AbstractNode.css"; // Import the CSS file
 
@@ -9,6 +9,9 @@ export const AbstractNode = ({ id, data, type, handles, onChange }) => {
   const [nodeType, setNodeType] = useState(data?.nodeType || type);
   const [inputText, setInputText] = useState(data?.text || "");
   const [dynamicHandles, setDynamicHandles] = useState(handles);
+  const [textareaHeight, setTextareaHeight] = useState("80px");
+
+  const textareaRef = useRef(null);
 
   useEffect(() => {
     if (type === "Text") {
@@ -25,6 +28,18 @@ export const AbstractNode = ({ id, data, type, handles, onChange }) => {
       });
     }
   }, [inputText, type, handles]);
+
+  useEffect(() => {
+    adjustTextareaHeight();
+  }, [inputText]);
+
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+      setTextareaHeight(`${textareaRef.current.scrollHeight}px`);
+    }
+  };
 
   const handleChange = (e, setState) => {
     setState(e.target.value);
@@ -44,7 +59,12 @@ export const AbstractNode = ({ id, data, type, handles, onChange }) => {
   };
 
   return (
-    <div className="node-container">
+    <div
+      className="node-container"
+      style={
+        type === "Text" ? { height: `calc(${textareaHeight} + 200px)` } : {}
+      }
+    >
       <div className="node-header">{type}</div>
       <div className="input-container">
         <label className="label">
@@ -72,9 +92,11 @@ export const AbstractNode = ({ id, data, type, handles, onChange }) => {
           <label className="label">
             Text:
             <textarea
+              ref={textareaRef}
               className="textarea-field"
               value={inputText}
               onChange={(e) => handleChange(e, setInputText)}
+              style={{ height: textareaHeight }}
             />
           </label>
         ) : (

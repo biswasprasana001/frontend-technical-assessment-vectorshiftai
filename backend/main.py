@@ -1,6 +1,6 @@
 # backend/main.py
 
-from fastapi import FastAPI, Form, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
